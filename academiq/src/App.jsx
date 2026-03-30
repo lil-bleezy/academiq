@@ -3,16 +3,11 @@ import { useState, useEffect } from "react";
 // ─── Grading Utilities ───────────────────────────────────────────────────────
 
 const markToGradePoint = (mark) => {
-  if (mark >= 80) return 4.0;
- if (mark >= 75) return 3.7;
-  if (mark >= 70) return 3.3; 
-if (mark >= 65) return 3.0;
-  if (mark >= 60) return 2.7;
- if (mark >= 55) return 2.3;
-  if (mark >= 50) return 2.0;
- if (mark >= 45) return 1.7;
-  if (mark >= 40) return 1.0;
- return 0.0;
+  if (mark >= 80) return 4.0; if (mark >= 75) return 3.7;
+  if (mark >= 70) return 3.3; if (mark >= 65) return 3.0;
+  if (mark >= 60) return 2.7; if (mark >= 55) return 2.3;
+  if (mark >= 50) return 2.0; if (mark >= 45) return 1.7;
+  if (mark >= 40) return 1.0; return 0.0;
 };
 const markToLetter = (mark) => {
   if (mark >= 80) return "A"; if (mark >= 75) return "A−";
@@ -22,10 +17,10 @@ const markToLetter = (mark) => {
   if (mark >= 40) return "D"; return "F";
 };
 const classFromCWA = (cwa) => {
-  if (cwa >= 80) return { label: "First Class Honours", color: "#22c55e", short: "1st" };
-  if (cwa >= 70) return { label: "Second Class Upper", color: "#3b82f6", short: "2:1" };
-  if (cwa >= 60) return { label: "Second Class Lower", color: "#a855f7", short: "2:2" };
-  if (cwa >= 50) return { label: "Third Class", color: "#f59e0b", short: "3rd" };
+  if (cwa >= 70) return { label: "First Class Honours", color: "#22c55e", short: "1st" };
+  if (cwa >= 60) return { label: "Second Class Upper", color: "#3b82f6", short: "2:1" };
+  if (cwa >= 50) return { label: "Second Class Lower", color: "#a855f7", short: "2:2" };
+  if (cwa >= 45) return { label: "Third Class", color: "#f59e0b", short: "3rd" };
   if (cwa >= 40) return { label: "Pass", color: "#6b7280", short: "Pass" };
   return { label: "Fail", color: "#ef4444", short: "Fail" };
 };
