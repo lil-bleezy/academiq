@@ -87,7 +87,7 @@ export default function App() {
     if (!found) return { ok: false, error: "Invalid ID or password." };
     if (role === "student" && !found.verified)
       return { ok: false, error: "Your account is pending verification by your department teacher." };
-    setUser({ role, ...found });
+    setUser({ role, ...found }); 
     setPage(role === "teacher" ? "teacher-home" : "student-home");
     return { ok: true };
   };
