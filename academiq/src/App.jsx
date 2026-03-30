@@ -3,18 +3,23 @@ import { useState, useEffect } from "react";
 // ─── Grading Utilities ───────────────────────────────────────────────────────
 
 const markToGradePoint = (mark) => {
-  if (mark >= 80) return 4.0; if (mark >= 75) return 3.7;
-  if (mark >= 70) return 3.3; if (mark >= 65) return 3.0;
-  if (mark >= 60) return 2.7; if (mark >= 55) return 2.3;
-  if (mark >= 50) return 2.0; if (mark >= 45) return 1.7;
-  if (mark >= 40) return 1.0; return 0.0;
+  if (mark >= 80) return 4.0;
+ if (mark >= 75) return 3.7;
+  if (mark >= 70) return 3.3; 
+if (mark >= 65) return 3.0;
+  if (mark >= 60) return 2.7;
+ if (mark >= 55) return 2.3;
+  if (mark >= 50) return 2.0;
+ if (mark >= 45) return 1.7;
+  if (mark >= 40) return 1.0;
+ return 0.0;
 };
 const markToLetter = (mark) => {
-  if (mark >= 80) return "A"; 
-  if (mark >= 70) return "B"; 
-  if (mark >= 60) return "C"; 
-  if (mark >= 50) return "D"; 
-   return "F";
+  if (mark >= 80) return "A"; if (mark >= 75) return "A−";
+  if (mark >= 70) return "B+"; if (mark >= 65) return "B";
+  if (mark >= 60) return "B−"; if (mark >= 55) return "C+";
+  if (mark >= 50) return "C"; if (mark >= 45) return "C−";
+  if (mark >= 40) return "D"; return "F";
 };
 const classFromCWA = (cwa) => {
   if (cwa >= 80) return { label: "First Class Honours", color: "#22c55e", short: "1st" };
@@ -87,7 +92,7 @@ export default function App() {
     if (!found) return { ok: false, error: "Invalid ID or password." };
     if (role === "student" && !found.verified)
       return { ok: false, error: "Your account is pending verification by your department teacher." };
-    setUser({ role, ...found }); 
+    setUser({ role, ...found });
     setPage(role === "teacher" ? "teacher-home" : "student-home");
     return { ok: true };
   };
